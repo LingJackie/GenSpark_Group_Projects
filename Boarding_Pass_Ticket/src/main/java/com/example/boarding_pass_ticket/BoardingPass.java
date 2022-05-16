@@ -10,7 +10,7 @@ public class BoardingPass {
     String date; // DATATYPE SUBJECT TO CHANGE
 
     String origin;
-    String Destination;
+    String destination;
     String eta; // DATATYPE SUBJECT TO CHANGE
 
 //    LocalTime departureTime;
@@ -24,13 +24,14 @@ public class BoardingPass {
 
     int totalTicketPrice;
 
-    public BoardingPass(String name, String email, int phoneNum, String gender, int age, String date, String departureTime){
+    public BoardingPass(String name, String email, int phoneNum, String gender, int age, String date, String destination,String departureTime){
         this.name=name;
         this.email=email;
         this.phoneNum=phoneNum;
         this.gender=gender;
         this.age=age;
         this.date=date;
+        this.destination=destination;
         this.departureTime=departureTime;
     }
 }
