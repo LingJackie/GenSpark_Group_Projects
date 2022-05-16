@@ -1,4 +1,4 @@
-package Boarding_Pass_Ticket.src.main.java;
+package com.example.boarding_pass_ticket;
 
 import java.util.UUID;
 

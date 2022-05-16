@@ -14,8 +14,15 @@ public class UserFormController {
     private Text actiontarget;
 
 
-    @FXML
-    private TextField bagel;
+    @FXML private TextField name;
+    @FXML private TextField email;
+    @FXML private TextField phone_number;
+    @FXML private TextField gender;
+    @FXML private TextField age;
+    @FXML private TextField date;
+    @FXML private TextField destination;
+    @FXML private TextField departure_time;
+
 
     @FXML
     protected void onHelloButtonClick() {
@@ -23,7 +30,11 @@ public class UserFormController {
     }
 
     public void handleSubmitButtonAction(ActionEvent actionEvent) {
-        String bagelText = bagel.getText();
-        actiontarget.setText("Sign in button pressed"+ bagelText);
+        int phoneNum = Integer.parseInt(phone_number.getText());
+        int age = Integer.parseInt(this.age.getText());
+        BoardingPass bp = new BoardingPass(name.getText(),email.getText(),phoneNum, gender.getText()
+                                            ,age,date.getText(), destination.getText(),departure_time.getText());
+
+        actiontarget.setText("Sign in button pressed");
     }
 }
