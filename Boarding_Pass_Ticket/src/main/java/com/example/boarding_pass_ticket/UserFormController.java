@@ -7,11 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class UserFormController {
-    @FXML
-    private Label welcomeText;
 
-    @FXML
-    private Text actiontarget;
+
+    @FXML private Text actiontarget;
 
 
     @FXML private TextField name;
@@ -24,11 +22,6 @@ public class UserFormController {
     @FXML private TextField departure_time;
 
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
     public boolean isFieldEmpty(){
         return name.getText().isEmpty() || email.getText().isEmpty() || phone_number.getText().isEmpty() || gender.getText().isEmpty()
                  || age.getText().isEmpty() || date.getText().isEmpty() || destination.getText().isEmpty() ||departure_time.getText().isEmpty();
@@ -38,7 +31,7 @@ public class UserFormController {
 
     public void handleSubmitButtonAction(ActionEvent actionEvent) {
         if(isFieldEmpty()){
-            actiontarget.setText("Missing information. Please check again.");
+            actiontarget.setText("Missing information.\n Please double check.");
             return;
         }
 
