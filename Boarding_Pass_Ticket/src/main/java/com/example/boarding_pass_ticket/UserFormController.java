@@ -28,7 +28,7 @@ public class UserFormController {
                  || age.getText().isEmpty() || date.getValue() == null || destination.getText().isEmpty() ||departure_time.getText().isEmpty();
     }
     public boolean isPhoneNumValid(String phNum){
-        return phNum.length()
+        return phNum.length() >= 10 && phNum.length() <= 15;
     }
 
     // Outputs a response for invalid field inputs

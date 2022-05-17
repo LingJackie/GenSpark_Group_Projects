@@ -1,3 +1,5 @@
+package com.example.boarding_pass_ticket;
+
 import java.nio.file.Path;
 import java.util.*;
 import java.nio.file.Files;
@@ -53,12 +55,12 @@ public class ETA {
             String city = split[0].trim();
             String country = split[1].trim();
             if(citiesMap.containsKey(country)){
-                citiesMap.put(country, citiesMap.get(country).add(city));
+//                citiesMap.put(country, citiesMap.get(country).add(city));
             } else {
                 citiesMap.put(country, city);
             }
         }
-         return citiesMap;
+//        return citiesMap;
 
         return null;
     }
