@@ -1,3 +1,5 @@
+package com.example.boarding_pass_ticket;
+
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,19 +37,16 @@ public class ETA {
 
     public HashMap<String, ArrayList<String>> generateCitiesMap() throws Exception {
 
-
-        List<String> citiesList = null;
         ArrayList<String> citiesArray = new ArrayList<>();
         HashMap<String, ArrayList<String>> citiesMap = new HashMap<>();
 
+        ArrayList<String> currCountriesCity;
+
+        // Reads test file and saves it to a list
         URL url = getClass().getResource("cities.txt");
         Path path = Paths.get(url.toURI());
+        List<String> citiesList = Files.readAllLines(path);
 
-        try {
-            citiesList = Files.readAllLines(path);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         String city = null;
         String country = null;
@@ -57,25 +56,22 @@ public class ETA {
             country = split[1].trim();
 
 
-
-            /*
             if(citiesMap.containsKey(country)){
-                citiesArray.add(city);
-                citiesMap.put(country, citiesArray);
+                currCountriesCity = citiesMap.get(country); // Grabs the list of cities from country
+                currCountriesCity.add(city); // Adds the new city into the list
+                citiesMap.put(country, currCountriesCity); // Adds the new updated list into the hashmap
             } else {
-                citiesArray.add(city);
-                citiesMap.put(country, citiesArray);
+                citiesMap.put(country, new ArrayList<String>( Arrays.asList(city)) );
             }
 
-             */
+
 
         }
 
-        citiesArray.add(city);
-        citiesMap.put(country, citiesArray);
-        System.out.println(citiesMap);
 
-        return null;
+        System.out.println(citiesMap.get("United States"));
+
+        return citiesMap;
     }
 
 
