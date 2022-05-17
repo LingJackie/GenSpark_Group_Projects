@@ -1,4 +1,6 @@
+import java.net.URL;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.nio.file.Files;
 
@@ -31,34 +33,37 @@ public class ETA {
 
      */
 
-    public HashMap<String, String> generateCitiesMap() throws Exception {
+    public HashMap<String, ArrayList<String>> generateCitiesMap() throws Exception {
 
-        citiesMap = new HashMap<>();
 
-        Path path = Path.of("C:\\Users\\19412\\GenSpark\\BoardingPass\\src\\main\\resources\\cities.txt");
-//        getClass().getResourceAsStream(imgName)
-        try{
-            cities = Files.readString(path);
+        List<String> citiesList = null;
+        ArrayList<String> citiesArray = new ArrayList<>();
+        HashMap<String, ArrayList<String>>citiesMap = new HashMap<>();
+
+        URL url = getClass().getResource("cities.txt");
+        Path path = Paths.get(url.toURI());
+
+        try {
+            citiesList = Files.readAllLines(path);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println(cities);
-        citiesArray = cities.split("\n");
-
-        for (String name : citiesArray) {
+        for (String name : citiesList) {
             String[] split = name.split(", ");
-
-
             String city = split[0].trim();
             String country = split[1].trim();
+
+            /*
             if(citiesMap.containsKey(country)){
+                citiesArray.add(city);
                 citiesMap.put(country, citiesMap.get(country).add(city));
             } else {
                 citiesMap.put(country, city);
             }
+
+             */
         }
-         return citiesMap;
 
         return null;
     }
