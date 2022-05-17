@@ -3,6 +3,7 @@ package com.example.boarding_pass_ticket;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,9 @@ public class BPTApplication extends Application {
         stage.setTitle("Boarding Pass Ticket");
         stage.setScene(scene);
         stage.show();
+
+
+
     }
 
     public static void main(String[] args) {

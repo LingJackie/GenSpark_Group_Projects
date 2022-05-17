@@ -26,8 +26,10 @@
     <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
+
     <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText=""/>
+
 
     <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <TextField fx:id="phone_number" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
@@ -38,11 +40,8 @@
     <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
     <TextField fx:id="age" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
-<!--    <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>-->
-<!--    <TextField fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="6"/>-->
     <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
     <DatePicker fx:id="date_picker" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-
 
     <Label text="Destination:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
     <TextField fx:id="destination" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
@@ -58,7 +57,7 @@
     </HBox>
 
     <Text fx:id="actiontarget"
-          GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+          GridPane.columnIndex="0" GridPane.rowIndex="10" GridPane.columnSpan="2"/>
 
 
 

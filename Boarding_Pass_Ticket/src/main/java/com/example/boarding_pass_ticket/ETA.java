@@ -36,7 +36,7 @@ public class ETA {
         citiesMap = new HashMap<>();
 
         Path path = Path.of("C:\\Users\\19412\\GenSpark\\BoardingPass\\src\\main\\resources\\cities.txt");
-
+//        getClass().getResourceAsStream(imgName)
         try{
             cities = Files.readString(path);
         } catch (Exception e) {
@@ -48,10 +48,12 @@ public class ETA {
 
         for (String name : citiesArray) {
             String[] split = name.split(", ");
+
+
             String city = split[0].trim();
             String country = split[1].trim();
             if(citiesMap.containsKey(country)){
-                citiesMap.get(country).add(city);
+                citiesMap.put(country, citiesMap.get(country).add(city));
             } else {
                 citiesMap.put(country, city);
             }
