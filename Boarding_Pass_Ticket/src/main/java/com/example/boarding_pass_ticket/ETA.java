@@ -1,5 +1,6 @@
-package com.example.boarding_pass_ticket;
+import org.jetbrains.annotations.NotNull;
 
+import javax.swing.text.Document;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,10 +12,12 @@ public class ETA {
     public static void main(String[] args) throws Exception {
         ETA eta = new ETA();
         eta.generateCitiesMap();
+
     }
 
     String destination;
     String eta;
+    String duration;
     String departureTime;
     String cities;
     String[] citiesArray;
@@ -24,16 +27,38 @@ public class ETA {
 
     public ETA(String destination) {this.destination = destination;}
 
-    /*
-    public String calculateEta(String destination, String departureTime) {
 
-        String[] arrayOfTime = departureTime.split(":"); // 15:24
-        String[] arrayOfLengthOfFlight = city.split(","); // 7 hours, 30 minutes
-        String[] hour = arrayOfLengthOfFlight[0].split(" "); // 7 hours
+    public String calculateEta(String duration, String departureTime) {
+        // Creates int variables for local time hours and minutes // 15:24
+        String[] localTimeArray = departureTime.split(":"); // 15, 24
+        int localTimeHour = Integer.parseInt(localTimeArray[0]);   // 15
+        int localTimeMinutes = Integer.parseInt(localTimeArray[1]);  // 24
 
+        // Creates int variables for duration hours and minutes                //7 hours, 30 minutes
+        String[] arrayOfLengthOfFlight = duration.split(",");            // 7 hours, 30 minutes
+        String[] hoursSplitArray = arrayOfLengthOfFlight[0].split(" "); // 7, hours
+        String[] minutesSplitArray = arrayOfLengthOfFlight[1].split(" ");  // 30, minutes
+        int durationHours = Integer.parseInt(hoursSplitArray[0]);               // 7
+        int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           //30
+
+        if((localTimeMinutes + durationMinutes) >= 60) {
+            localTimeHour++;
+            localTimeMinutes = (localTimeMinutes + durationMinutes) - 60;
+        }
+
+        if ((localTimeHour + durationHours) >= 24) {
+            localTimeHour = (localTimeHour + durationHours) - 24;
+        }
+
+        localTimeHour = localTimeHour + durationHours;
+        localTimeMinutes = localTimeMinutes + durationMinutes;
+
+        String localTimeHourString = String.valueOf(localTimeHour);
+        String localTimeMinutesString = String.valueOf(localTimeHour);
+
+        return localTimeHourString + ":" + localTimeMinutesString;
     }
 
-     */
 
     public HashMap<String, ArrayList<String>> generateCitiesMap() throws Exception {
 
@@ -50,6 +75,7 @@ public class ETA {
 
         String city = null;
         String country = null;
+
         for (String name : citiesList) {
             String[] split = name.split(", ");
             city = split[0].trim();
@@ -63,36 +89,51 @@ public class ETA {
             } else {
                 citiesMap.put(country, new ArrayList<String>( Arrays.asList(city)) );
             }
-
-
-
         }
-
-
-        System.out.println(citiesMap.get("United States"));
 
         return citiesMap;
     }
+
+    /*
+    public String generateFlightDuration(String origin, String destination) {
+
+        String[] originArray = origin.split(", ");
+        String[] destinationArray = origin.split(", ");
+        String originCity = originArray[0];
+        String originCountry = originArray[1];
+        String destinationCity = destinationArray[0];
+        String destinationCountry = destinationArray[1];
+
+
+        try {
+            String url = "https://www.travelmath.com/flying-time/from/New+York,+NY/to/London,+United+Kingdom"; // or whatever goes here
+            Document document = Jsoup.connect(url).followRedirects(false).timeout(60000 / wait up to 60sec for response /).
+            get();
+            String value = document.body().select("#flyingtime" / css selector /).get(0).text();
+            System.out.println(value);
+        } catch (Exception e) {
+            System.out.println("dont work");
+        }
+
+        return duration;
+    }
+
+     */
+
+
 
 
     //Getters
     public String getEta() {return eta;}
     public String getDestination() {return destination;}
+    public String getDuration() {return destination;}
+    public String getDepartureTime() {return departureTime;}
 
     //Setters
     public void setEta(String eta) {this.eta = eta;}
     public void setDestination(String destination) {this.destination = destination;}
+    public void setDuration(String duration) {this.duration = duration;}
+    public void setDepartureTime(String departureTime) {this.departureTime = departureTime;}
 
-
-    /*
-    try {
-        String url = "https://www.travelmath.com/flying-time/from/New+York,+NY/to/London,+United+Kingdom"; // or whatever goes here
-        Document document = Jsoup.connect(url).followRedirects(false).timeout(60000 / wait up to 60sec for response /).
-        get();
-        String value = document.body().select("#flyingtime" / css selector /).get(0).text();
-        System.out.println(value);
-    } catch (Exception e) {
-        System.out.println("dont work");
-    }*/
 
 }
