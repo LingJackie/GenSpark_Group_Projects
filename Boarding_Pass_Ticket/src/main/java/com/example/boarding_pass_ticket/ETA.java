@@ -10,19 +10,10 @@ import java.nio.file.Files;
 
 public class ETA {
 
-    public static void main(String[] args) throws Exception {
-        ETA eta = new ETA();
-        eta.generateCitiesMap();
-
-    }
-
     String destination;
     String eta;
-    String duration;
+    String flightDuration;
     String departureTime;
-    String cities;
-    String[] citiesArray;
-    HashMap<String, String> citiesMap;
 
 
     public ETA() {}
@@ -31,12 +22,12 @@ public class ETA {
 
 
     /**
-     * @param duration - Duration of the flight in the format of "7 hours, 30 minutes"
+     * @param flightDuration - Duration of the flight in the format of "7 hours, 30 minutes"
      * @param departureTime - 24 hour time in the format of "15:24"
      * @return
      */
 
-    public String calculateEta(String duration, String departureTime) {
+    public String calculateEta(String flightDuration, String departureTime) {
 
         DecimalFormat formatter = new DecimalFormat("00");
 
@@ -46,7 +37,7 @@ public class ETA {
         int localTimeMinutes = Integer.parseInt(localTimeArray[1]);  // 24
 
         // Creates int variables for duration hours and minutes                //7 hours, 30 minutes
-        String[] arrayOfLengthOfFlight = duration.split(",");            // {7 hours, 30 minutes}
+        String[] arrayOfLengthOfFlight = flightDuration.split(",");            // {7 hours, 30 minutes}
         String[] hoursSplitArray = arrayOfLengthOfFlight[0].trim().split(" "); // {7, hours}
         String[] minutesSplitArray = arrayOfLengthOfFlight[1].trim().split(" ");  // {30, minutes}
         int durationHours = Integer.parseInt(hoursSplitArray[0]);               // 7
@@ -130,20 +121,17 @@ public class ETA {
     }
 
      */
-
-
-
-
+    
     //Getters
     public String getEta() {return eta;}
     public String getDestination() {return destination;}
-    public String getDuration() {return destination;}
+    public String getFlightDuration() {return flightDuration;}
     public String getDepartureTime() {return departureTime;}
 
     //Setters
     public void setEta(String eta) {this.eta = eta;}
     public void setDestination(String destination) {this.destination = destination;}
-    public void setDuration(String duration) {this.duration = duration;}
+    public void setDuration(String flightDuration) {this.flightDuration = flightDuration;}
     public void setDepartureTime(String departureTime) {this.departureTime = departureTime;}
 
 
