@@ -1,11 +1,10 @@
-package com.example.boarding_pass_ticket;
-
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class ETATest {
 
-class ETATest {
     ETA testEta;
 
     @BeforeEach
@@ -15,8 +14,13 @@ class ETATest {
 
     @Test
     void testCalculateEta(){
-        assertEquals("22:54",testEta.calculateEta("7 hours, 30 minutes", "15:24"));
 
-        assertEquals("06:30",testEta.calculateEta("7 hours, 30 minutes", "23:00"));
+        assertEquals("00:54",testEta.calculateEta("7 hours, 30 minutes", "17:24"));
+        assertEquals("07:30",testEta.calculateEta("7 hours, 30 minutes", "00:00"));
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("Test Completed...");
     }
 }
