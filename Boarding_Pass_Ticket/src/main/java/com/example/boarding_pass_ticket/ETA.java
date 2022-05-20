@@ -33,7 +33,7 @@ public class ETA {
      */
     public String calculateEta(String duration, String departureTime) {
         // Creates int variables for local time hours and minutes // 15:24
-        String[] localTimeArray = departureTime.split(":"); // 15, 24
+        String[] localTimeArray = departureTime.split(":"); // {15, 24}
         int localTimeHour = Integer.parseInt(localTimeArray[0]);   // 15
         int localTimeMinutes = Integer.parseInt(localTimeArray[1]);  // 24
 
@@ -42,7 +42,7 @@ public class ETA {
         String[] hoursSplitArray = arrayOfLengthOfFlight[0].trim().split(" "); // {7, hours}
         String[] minutesSplitArray = arrayOfLengthOfFlight[1].trim().split(" ");  // {30, minutes}
         int durationHours = Integer.parseInt(hoursSplitArray[0]);               // 7
-        int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           //30
+        int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           // 30
 
         if((localTimeMinutes + durationMinutes) >= 60) {
             localTimeHour++;

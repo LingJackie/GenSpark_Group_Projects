@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66761e65-f41f-47f6-8d73-17e20a7b7e48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/test/com/example/boarding_pass_ticket/ETATest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Boarding_Pass_Ticket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Boarding_Pass_Ticket.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/AutocompleteTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/AutocompleteTextField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/ETA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/ETA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/TestStuff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/TestStuff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/UserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/boarding_pass_ticket/UserFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/boarding_pass_ticket/user-form-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/boarding_pass_ticket/user-form-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/ETA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/ETA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/TestStuff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/TestStuff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/UserFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/UserFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/user-form-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/boarding_pass_ticket/user-form-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +20,7 @@
       <list>
         <option value="Class" />
         <option value="FxmlFile" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,6 +40,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/Java/jsoup-1.15.1.jar" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -52,11 +49,17 @@
     <property name="settings.editor.selected.configurable" value="settings.json.schema" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.boarding_pass_ticket" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.boarding_pass_ticket" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.TestStuff">
+  <component name="RunManager" selected="Application.BPTApplication">
     <configuration name="BPTApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.boarding_pass_ticket.BPTApplication" />
       <module name="Boarding_Pass_Ticket" />
@@ -83,10 +86,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ETATest.testCalculateEta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Boarding_Pass_Ticket" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.boarding_pass_ticket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.boarding_pass_ticket" />
+      <option name="MAIN_CLASS_NAME" value="com.example.boarding_pass_ticket.ETATest" />
+      <option name="METHOD_NAME" value="testCalculateEta" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestStuff" />
         <item itemvalue="Application.BPTApplication" />
+        <item itemvalue="JUnit.ETATest.testCalculateEta" />
+        <item itemvalue="Application.TestStuff" />
       </list>
     </recent_temporary>
   </component>

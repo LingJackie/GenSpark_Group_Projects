@@ -36,7 +36,7 @@ public class AutocompleteTextField extends TextField {
         this.entries = new TreeSet<>();
         this.entriesPopup = new ContextMenu();
 
-        setListner();
+        setListener();
 
         List<String> citiesList;
         try{
@@ -55,9 +55,9 @@ public class AutocompleteTextField extends TextField {
 
 
     /**
-     * "Suggestion" specific listners
+     * "Suggestion" specific listeners
      */
-    private void setListner() {
+    private void setListener() {
         //Add "suggestions" by changing text
         textProperty().addListener((observable, oldValue, newValue) -> {
             String enteredText = getText();
@@ -93,7 +93,7 @@ public class AutocompleteTextField extends TextField {
     /**
      * Populate the entry set with the given search results. Display is limited to 10 entries, for performance.
      *
-     * @param searchResult The set of matching strings.
+     * @param searchResult - The set of matching strings.
      */
     private void populatePopup(List<String> searchResult, String searchRequest) {
         //List of "suggestions"
