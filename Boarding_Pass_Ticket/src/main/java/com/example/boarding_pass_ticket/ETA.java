@@ -1,8 +1,10 @@
-package com.example.boarding_pass_ticket;
+import org.jetbrains.annotations.NotNull;
 
+import javax.swing.text.Document;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.nio.file.Files;
 
@@ -22,27 +24,33 @@ public class ETA {
     String[] citiesArray;
     HashMap<String, String> citiesMap;
 
+
     public ETA() {}
 
     public ETA(String destination) {this.destination = destination;}
+
 
     /**
      * @param duration - Duration of the flight in the format of "7 hours, 30 minutes"
      * @param departureTime - 24 hour time in the format of "15:24"
      * @return
      */
+
     public String calculateEta(String duration, String departureTime) {
+
+        DecimalFormat formatter = new DecimalFormat("00");
+
         // Creates int variables for local time hours and minutes // 15:24
         String[] localTimeArray = departureTime.split(":"); // {15, 24}
         int localTimeHour = Integer.parseInt(localTimeArray[0]);   // 15
         int localTimeMinutes = Integer.parseInt(localTimeArray[1]);  // 24
 
-        // Creates int variables for duration hours and minutes                // 7 hours, 30 minutes
-        String[] arrayOfLengthOfFlight = duration.split(",");            // "7 hours, 30 minutes"
+        // Creates int variables for duration hours and minutes                //7 hours, 30 minutes
+        String[] arrayOfLengthOfFlight = duration.split(",");            // {7 hours, 30 minutes}
         String[] hoursSplitArray = arrayOfLengthOfFlight[0].trim().split(" "); // {7, hours}
         String[] minutesSplitArray = arrayOfLengthOfFlight[1].trim().split(" ");  // {30, minutes}
         int durationHours = Integer.parseInt(hoursSplitArray[0]);               // 7
-        int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           // 30
+        int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           //30
 
         if((localTimeMinutes + durationMinutes) >= 60) {
             localTimeHour++;
@@ -51,13 +59,14 @@ public class ETA {
 
         if ((localTimeHour + durationHours) >= 24) {
             localTimeHour = (localTimeHour + durationHours) - 24;
+            localTimeMinutes = localTimeMinutes + durationMinutes;
+        } else {
+            localTimeHour = localTimeHour + durationHours;
+            localTimeMinutes = localTimeMinutes + durationMinutes;
         }
 
-        localTimeHour = localTimeHour + durationHours;
-        localTimeMinutes = localTimeMinutes + durationMinutes;
-
-        String localTimeHourString = String.valueOf(localTimeHour);
-        String localTimeMinutesString = String.valueOf(localTimeHour);
+        String localTimeHourString = formatter.format(localTimeHour);
+        String localTimeMinutesString = String.valueOf(localTimeMinutes);
 
         return localTimeHourString + ":" + localTimeMinutesString;
     }
@@ -65,7 +74,6 @@ public class ETA {
 
     public HashMap<String, ArrayList<String>> generateCitiesMap() throws Exception {
 
-        ArrayList<String> citiesArray = new ArrayList<>();
         HashMap<String, ArrayList<String>> citiesMap = new HashMap<>();
 
         ArrayList<String> currCountriesCity;
