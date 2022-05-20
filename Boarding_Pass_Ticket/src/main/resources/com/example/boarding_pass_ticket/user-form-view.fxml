@@ -55,7 +55,6 @@
 
 
 
-
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="10">
         <Button text="Submit"

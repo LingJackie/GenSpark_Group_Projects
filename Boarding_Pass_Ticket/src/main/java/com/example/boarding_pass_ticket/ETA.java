@@ -1,6 +1,5 @@
-import org.jetbrains.annotations.NotNull;
+package com.example.boarding_pass_ticket;
 
-import javax.swing.text.Document;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,17 +26,21 @@ public class ETA {
 
     public ETA(String destination) {this.destination = destination;}
 
-
+    /**
+     * @param duration - Duration of the flight in the format of "7 hours, 30 minutes"
+     * @param departureTime - 24 hour time in the format of "15:24"
+     * @return
+     */
     public String calculateEta(String duration, String departureTime) {
         // Creates int variables for local time hours and minutes // 15:24
         String[] localTimeArray = departureTime.split(":"); // 15, 24
         int localTimeHour = Integer.parseInt(localTimeArray[0]);   // 15
         int localTimeMinutes = Integer.parseInt(localTimeArray[1]);  // 24
 
-        // Creates int variables for duration hours and minutes                //7 hours, 30 minutes
-        String[] arrayOfLengthOfFlight = duration.split(",");            // 7 hours, 30 minutes
-        String[] hoursSplitArray = arrayOfLengthOfFlight[0].split(" "); // 7, hours
-        String[] minutesSplitArray = arrayOfLengthOfFlight[1].split(" ");  // 30, minutes
+        // Creates int variables for duration hours and minutes                // 7 hours, 30 minutes
+        String[] arrayOfLengthOfFlight = duration.split(",");            // "7 hours, 30 minutes"
+        String[] hoursSplitArray = arrayOfLengthOfFlight[0].trim().split(" "); // {7, hours}
+        String[] minutesSplitArray = arrayOfLengthOfFlight[1].trim().split(" ");  // {30, minutes}
         int durationHours = Integer.parseInt(hoursSplitArray[0]);               // 7
         int durationMinutes = Integer.parseInt(minutesSplitArray[0]);           //30
 

@@ -70,12 +70,26 @@ public class UserFormController {
 
     /**
      * Checks if the email is correct and contains an "@" and a website
-     * @param email String containing a phone number
+     * @param email String containing an email
      */
     public boolean isEmailValid(String email){
         return email.contains("@") && email.contains(".");
     }
 
+    /**
+     * Checks for correct location syntax; i.e. "city, country"
+     */
+    public boolean isLocationInvalid(String location){
+        String[] split = location.split(", ");
+        return split.length != 2;
+    }
+
+    /**
+     * Check if origin and destination are the same
+     */
+    public boolean isDestinationSame(String origin, String destination){
+        return origin.equals(destination);
+    }
 
     /**
      * Brings it all together and displays a message if any input is invalid
@@ -99,7 +113,8 @@ public class UserFormController {
     }
 
     /**
-     * Creates a new BoardingPass object when the submit button is clicked
+     * Creates a new BoardingPass object containing all the info pass in from the user form
+     * This method is called when the submit button is clicked
      */
     public void handleSubmitButtonAction(ActionEvent actionEvent) {
         if(handleInvalidInputs()) return;// Ends the method prematurely if the inputs are invalid
